@@ -1,0 +1,31 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L58",
+	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).Header",
+	"level": "INFO",
+	"message": [
+		{
+			"ProductionRoutingGroup": "40000060",
+			"ProductionRouting": "1",
+			"ProductionRoutingInternalVers": "1",
+			"IsMarkedForDeletion": false,
+			"BillOfOperationsDesc": "MTS - ELECTRIC FAN",
+			"Plant": "1010",
+			"BillOfOperationsUsage": "1",
+			"BillOfOperationsStatus": "4",
+			"ResponsiblePlannerGroup": "",
+			"MinimumLotSizeQuantity": "1",
+			"MaximumLotSizeQuantity": "99999999",
+			"BillOfOperationsUnit": "PC",
+			"CreationDate": "/Date(1612137600000)/",
+			"CreatedByUser": "SAP_SYSTEM",
+			"LastChangeDate": "",
+			"ValidityStartDate": "/Date(1612137600000)/",
+			"ValidityEndDate": "/Date(253402214400000)/",
+			"ChangeNumber": "",
+			"PlainLongText": "",
+			"to_MatlAssgmt": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingHeader(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingInternalVers='1')/to_MatlAssgmt",
+			"to_Sequence": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingHeader(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingInternalVers='1')/to_Sequence"
+		}
+	],
+	"time": "2022-01-02T14:47:00.25546+09:00"
+}

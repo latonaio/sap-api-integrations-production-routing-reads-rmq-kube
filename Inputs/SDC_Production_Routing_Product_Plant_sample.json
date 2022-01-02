@@ -1,0 +1,41 @@
+{
+	"connection_key": "response",
+	"result": true,
+	"redis_key": "abcdefg",
+	"filepath": "/var/lib/aion/Data/rededge_sdc/abcdef.json",
+	"ProductionRouting": {
+		"Product": "AVC_RBT_ROBOT2",
+		"Plant": "1010",
+		"ProductionRoutingGroup": "",
+		"ProductionRouting": "",
+		"ProductionRoutingGroup_desc": "",
+		"BillOfOperationsStatus": "",
+		"MinimumLotSizeQuantity": "",
+		"MaximumLotSizeQuantity": "",
+		"ValidityStartDate": "",
+		"ValidityEndDate": "",
+		"IsMarkedForDeletion": false,
+		"ProdnRtgOpBOMItemInternalID": "",
+		"ProductionRoutingOpIntID": {
+			"ProductionRoutingOpIntID": "",
+			"BillOfMaterial": "",
+			"BillOfMaterialItemNodeNumber": "",
+			"MatlCompIsMarkedForBackflush": true,
+			"WorkCenterInternalID": "",
+			"Operation": "",
+			"OperationText": "",
+			"PurchasingInfoRecord": "",
+			"MaterialGroup": "",
+			"PurchasingGroup": "",
+			"Supplier": "",
+			"PlannedDeliveryDuration": "",
+			"NumberOfOperationPriceUnits": "",
+			"OpExternalProcessingPrice": ""
+		}
+	},
+	"api_schema": "/ProductionRoutingMatlAssgmt",
+	"accepter": ["ProductPlant"],
+	"material_code": "AVC_RBT_ROBOT2",
+	"plant": "1010",
+	"deleted": false
+}

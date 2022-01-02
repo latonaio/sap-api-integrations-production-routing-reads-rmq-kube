@@ -58,13 +58,15 @@ sap-api-integrations-production-routing-reads-rmq-kube が対応する APIサー
 ## 本レポジトリ に 含まれる API名
 sap-api-integrations-production-routing-reads には、次の API をコールするためのリソースが含まれています。  
 
-* ProductionRoutingHeader（作業手順 - ヘッダ）※作業手順の詳細データを取得するために、ToMaterialAssignment、ToSequence、ToOperation、と合わせて利用されます。
+* ProductionRoutingHeader（作業手順 - ヘッダ）※作業手順の詳細データを取得するために、ToMaterialAssignment、ToSequence、ToOperation、ToComponentAllocation、と合わせて利用されます。
 * ToMaterialAssignment（作業手順 - 品目 ※To）
 * ToSequence（作業手順 - 順序 ※To）
 * ToOperation（作業手順 - 作業 ※To）
-* ProductionRoutingMatlAssgmt（作業手順 - 品目）※作業手順の詳細データを取得するために、ToSequence、ToOperation、と合わせて利用されます。
+* ToComponentAllocation（作業手順 - 構成品目割当 ※To）
+* ProductionRoutingMatlAssgmt（作業手順 - 品目）※作業手順の詳細データを取得するために、ToSequence、ToOperation、ToComponentAllocation、と合わせて利用されます。
 * ToSequence（作業手順 - 順序 ※To）
 * ToOperation（作業手順 - 作業 ※To）
+* ToComponentAllocation（作業手順 - 構成品目割当 ※To）
 
 ## API への 値入力条件 の 初期値
 sap-api-integrations-production-routing-reads-rmq-kube において、API への値入力条件の初期値は、入力ファイルレイアウトの種別毎に、次の通りとなっています。  

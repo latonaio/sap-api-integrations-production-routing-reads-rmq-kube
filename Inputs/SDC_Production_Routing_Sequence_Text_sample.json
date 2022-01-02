@@ -103,7 +103,22 @@
 				"OpExternalProcessingCurrency": "",
 				"OperationScrapPercent": "",
 				"ChangedDateTime": "",
-				"PlainLongText": ""
+				"PlainLongText": "",
+				"ComponentAllocation": {
+					"ProdnRtgOpBOMItemInternalID": "",
+					"ProdnRtgOpBOMItemIntVersion": "",
+					"BillOfMaterialCategory": "",
+					"BillOfMaterial": "",
+					"BillOfMaterialVariant": "",
+					"BillOfMaterialItemNodeNumber": "",
+					"MatlCompIsMarkedForBackflush": null,
+					"CreationDate": "",
+					"LastChangeDate": "",
+					"ValidityStartDate": "",
+					"ValidityEndDate": "",
+					"ChangeNumber": "",
+					"ChangedDateTime": ""
+				}
 			}
 		}
 	},

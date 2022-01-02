@@ -120,6 +120,18 @@ func (c *SAPAPICaller) Header(productionRoutingGroup, productionRouting string) 
 		return
 	}
 	c.log.Info(operationData)
+	
+	componentAllocationData, err := c.callToComponentAllocation(operationData[0].ToComponentAllocation)
+	if err != nil {
+		c.log.Error(err)
+		return
+	}
+	err = c.outputter.Send(c.outputQueues[0], map[string]interface{}{"message": componentAllocationData, "function": "ProductionRoutingComponentAllocation"})
+	if err != nil {
+		c.log.Error(err)
+		return
+	}
+	c.log.Info(componentAllocationData)
 }
 
 func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementHeader(api, productionRoutingGroup, productionRouting string) ([]sap_api_output_formatter.Header, error) {
@@ -191,6 +203,24 @@ func (c *SAPAPICaller) callToOperation(url string) ([]sap_api_output_formatter.T
 
 	byteArray, _ := ioutil.ReadAll(resp.Body)
 	data, err := sap_api_output_formatter.ConvertToToOperation(byteArray, c.log)
+	if err != nil {
+		return nil, xerrors.Errorf("convert error: %w", err)
+	}
+	return data, nil
+}
+
+func (c *SAPAPICaller) callToComponentAllocation(url string) ([]sap_api_output_formatter.ToComponentAllocation, error) {
+	req, _ := http.NewRequest("GET", url, nil)
+	c.setHeaderAPIKeyAccept(req)
+
+	resp, err := new(http.Client).Do(req)
+	if err != nil {
+		return nil, xerrors.Errorf("API request error: %w", err)
+	}
+	defer resp.Body.Close()
+
+	byteArray, _ := ioutil.ReadAll(resp.Body)
+	data, err := sap_api_output_formatter.ConvertToToComponentAllocation(byteArray, c.log)
 	if err != nil {
 		return nil, xerrors.Errorf("convert error: %w", err)
 	}

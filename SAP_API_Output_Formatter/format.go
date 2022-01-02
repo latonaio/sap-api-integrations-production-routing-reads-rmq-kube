@@ -201,6 +201,7 @@ func ConvertToOperation(raw []byte, l *logger.Logger) ([]Operation, error) {
 			OperationScrapPercent:          data.OperationScrapPercent,
 			ChangedDateTime:                data.ChangedDateTime,
 			PlainLongText:                  data.PlainLongText,
+			ToComponentAllocation:          data.ToComponentAllocation.Deferred.URI,
 		})
 	}
 
@@ -355,8 +356,50 @@ func ConvertToToOperation(raw []byte, l *logger.Logger) ([]ToOperation, error) {
 			OperationScrapPercent:          data.OperationScrapPercent,
 			ChangedDateTime:                data.ChangedDateTime,
 			PlainLongText:                  data.PlainLongText,
+			ToComponentAllocation:          data.ToComponentAllocation.Deferred.URI,
 		})
 	}
 
 	return toOperation, nil
+}
+
+func ConvertToToComponentAllocation(raw []byte, l *logger.Logger) ([]ToComponentAllocation, error) {
+	pm := &responses.ToComponentAllocation{}
+
+	err := json.Unmarshal(raw, pm)
+	if err != nil {
+		return nil, xerrors.Errorf("cannot convert to ToComponentAllocation. unmarshal error: %w", err)
+	}
+	if len(pm.D.Results) == 0 {
+		return nil, xerrors.New("Result data is not exist")
+	}
+	if len(pm.D.Results) > 10 {
+		l.Info("raw data has too many Results. %d Results exist. show the first 10 of Results array", len(pm.D.Results))
+	}
+
+	toComponentAllocation := make([]ToComponentAllocation, 0, 10)
+	for i := 0; i < 10 && i < len(pm.D.Results); i++ {
+		data := pm.D.Results[i]
+		toComponentAllocation = append(toComponentAllocation, ToComponentAllocation{
+			ProductionRoutingGroup:       data.ProductionRoutingGroup,
+			ProductionRouting:            data.ProductionRouting,
+			ProductionRoutingSequence:    data.ProductionRoutingSequence,
+			ProductionRoutingOpIntID:     data.ProductionRoutingOpIntID,
+			ProdnRtgOpBOMItemInternalID:  data.ProdnRtgOpBOMItemInternalID,
+			ProdnRtgOpBOMItemIntVersion:  data.ProdnRtgOpBOMItemIntVersion,
+			BillOfMaterialCategory:       data.BillOfMaterialCategory,
+			BillOfMaterial:               data.BillOfMaterial,
+			BillOfMaterialVariant:        data.BillOfMaterialVariant,
+			BillOfMaterialItemNodeNumber: data.BillOfMaterialItemNodeNumber,
+			MatlCompIsMarkedForBackflush: data.MatlCompIsMarkedForBackflush,
+			CreationDate:                 data.CreationDate,
+			LastChangeDate:               data.LastChangeDate,
+			ValidityStartDate:            data.ValidityStartDate,
+			ValidityEndDate:              data.ValidityEndDate,
+			ChangeNumber:                 data.ChangeNumber,
+			ChangedDateTime:              data.ChangedDateTime,
+		})
+	}
+
+	return toComponentAllocation, nil
 }

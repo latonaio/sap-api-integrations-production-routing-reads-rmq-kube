@@ -64,6 +64,11 @@ type ToOperation struct {
 			OperationScrapPercent          string      `json:"OperationScrapPercent"`
 			ChangedDateTime                string      `json:"ChangedDateTime"`
 			PlainLongText                  string      `json:"PlainLongText"`
+			ToComponentAllocation          struct {
+				Deferred struct {
+					URI string `json:"uri"`
+				} `json:"__deferred"`
+			} `json:"to_OpCompAlloc"`
 		} `json:"results"`
 	} `json:"d"`
 }

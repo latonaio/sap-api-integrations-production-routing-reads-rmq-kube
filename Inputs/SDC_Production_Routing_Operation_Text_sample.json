@@ -24,8 +24,8 @@
 		"ChangeNumber": "",
 		"PlainLongText": "",
 		"MaterialAssignment": {
-			"Product": "AVC_RBT_ROBOT2",
-			"Plant": "1010",
+			"Product": "",
+			"Plant": "",
 			"ProductionRoutingMatlAssgmt": "",
 			"ProductionRtgMatlAssgmtIntVers": "",
 			"CreationDate": "",
@@ -60,7 +60,7 @@
 				"ChangeNumber": "",
 				"ValidityStartDate": "",
 				"ValidityEndDate": "",
-				"OperationText": "",
+				"OperationText": "Packaging",
 				"LongTextLanguageCode": "",
 				"Plant": "",
 				"OperationControlProfile": "",
@@ -108,8 +108,8 @@
 		}
 	},
 	"api_schema": "/ProductionRoutingHeader",
-	"accepter": ["ProductPlant"],
-	"material_code": "AVC_RBT_ROBOT2",
-	"plant": "1010",
+	"accepter": ["OperationText"],
+	"material_code": "",
+	"plant": "",
 	"deleted": false
 }

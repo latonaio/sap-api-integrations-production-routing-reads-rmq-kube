@@ -50,18 +50,21 @@ func callProcess(caller *sap_api_caller.SAPAPICaller, msg rabbitmq.RabbitmqMessa
 			return
 		}
 	}()
-	productionRoutingGroup, productionRouting, product, plant := extractData(msg.Data())
+	productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText := extractData(msg.Data())
 	accepter := getAccepter(msg.Data())
-	caller.AsyncGetProductionRouting(productionRoutingGroup, productionRouting, product, plant, accepter)
+	caller.AsyncGetProductionRouting(productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText, accepter)
 	return nil
 }
 
-func extractData(data map[string]interface{}) (productionRoutingGroup, productionRouting, product, plant string) {
+func extractData(data map[string]interface{}) (productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText string) {
 	sdc := sap_api_input_reader.ConvertToSDC(data)
 	productionRoutingGroup = sdc.ProductionRouting.ProductionRoutingGroup
 	productionRouting = sdc.ProductionRouting.ProductionRouting
-	product = sdc.ProductionRouting.Product
-	plant = sdc.ProductionRouting.Plant
+	product = sdc.ProductionRouting.MaterialAssignment.Product
+	plant = sdc.ProductionRouting.MaterialAssignment.Plant
+	billOfOperationsDesc = sdc.ProductionRouting.BillOfOperationsDesc
+	sequenceText = sdc.ProductionRouting.Sequence.SequenceText
+	operationText = sdc.ProductionRouting.Sequence.Operation.OperationText
 	return
 }
 
@@ -75,6 +78,7 @@ func getAccepter(data map[string]interface{}) []string {
 	if accepter[0] == "All" {
 		accepter = []string{
 			"Header", "ProductPlant",
+			"BillOfOperationsDesc", "SequenceText", "OperationText",
 		}
 	}
 	return accepter

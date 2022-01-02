@@ -24,8 +24,8 @@
 		"ChangeNumber": "",
 		"PlainLongText": "",
 		"MaterialAssignment": {
-			"Product": "AVC_RBT_ROBOT2",
-			"Plant": "1010",
+			"Product": "",
+			"Plant": "",
 			"ProductionRoutingMatlAssgmt": "",
 			"ProductionRtgMatlAssgmtIntVers": "",
 			"CreationDate": "",
@@ -108,8 +108,8 @@
 		}
 	},
 	"api_schema": "/ProductionRoutingHeader",
-	"accepter": ["ProductPlant"],
-	"material_code": "AVC_RBT_ROBOT2",
-	"plant": "1010",
+	"accepter": ["SequenceText"],
+	"material_code": "",
+	"plant": "",
 	"deleted": false
 }

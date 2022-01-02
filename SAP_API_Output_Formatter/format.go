@@ -88,6 +88,125 @@ func ConvertToMaterialAssignment(raw []byte, l *logger.Logger) ([]MaterialAssign
 	return materialAssignment, nil
 }
 
+func ConvertToSequence(raw []byte, l *logger.Logger) ([]Sequence, error) {
+	pm := &responses.Sequence{}
+
+	err := json.Unmarshal(raw, pm)
+	if err != nil {
+		return nil, xerrors.Errorf("cannot convert to Sequence. unmarshal error: %w", err)
+	}
+	if len(pm.D.Results) == 0 {
+		return nil, xerrors.New("Result data is not exist")
+	}
+	if len(pm.D.Results) > 10 {
+		l.Info("raw data has too many Results. %d Results exist. show the first 10 of Results array", len(pm.D.Results))
+	}
+
+	sequence := make([]Sequence, 0, 10)
+	for i := 0; i < 10 && i < len(pm.D.Results); i++ {
+		data := pm.D.Results[i]
+		sequence = append(sequence, Sequence{
+			ProductionRoutingGroup:       data.ProductionRoutingGroup,
+			ProductionRouting:            data.ProductionRouting,
+			ProductionRoutingSequence:    data.ProductionRoutingSequence,
+			ProductionRoutingSqncIntVers: data.ProductionRoutingSqncIntVers,
+			ChangeNumber:                 data.ChangeNumber,
+			ValidityStartDate:            data.ValidityStartDate,
+			ValidityEndDate:              data.ValidityEndDate,
+			SequenceCategory:             data.SequenceCategory,
+			BillOfOperationsRefSequence:  data.BillOfOperationsRefSequence,
+			MinimumLotSizeQuantity:       data.MinimumLotSizeQuantity,
+			MaximumLotSizeQuantity:       data.MaximumLotSizeQuantity,
+			BillOfOperationsUnit:         data.BillOfOperationsUnit,
+			SequenceText:                 data.SequenceText,
+			CreationDate:                 data.CreationDate,
+			LastChangeDate:               data.LastChangeDate,
+			ToOperation:                  data.ToOperation.Deferred.URI,
+		})
+	}
+
+	return sequence, nil
+}
+
+func ConvertToOperation(raw []byte, l *logger.Logger) ([]Operation, error) {
+	pm := &responses.Operation{}
+
+	err := json.Unmarshal(raw, pm)
+	if err != nil {
+		return nil, xerrors.Errorf("cannot convert to Operation. unmarshal error: %w", err)
+	}
+	if len(pm.D.Results) == 0 {
+		return nil, xerrors.New("Result data is not exist")
+	}
+	if len(pm.D.Results) > 10 {
+		l.Info("raw data has too many Results. %d Results exist. show the first 10 of Results array", len(pm.D.Results))
+	}
+
+	operation := make([]Operation, 0, 10)
+	for i := 0; i < 10 && i < len(pm.D.Results); i++ {
+		data := pm.D.Results[i]
+		operation = append(operation, Operation{
+			ProductionRoutingGroup:         data.ProductionRoutingGroup,
+			ProductionRouting:              data.ProductionRouting,
+			ProductionRoutingSequence:      data.ProductionRoutingSequence,
+			ProductionRoutingOpIntID:       data.ProductionRoutingOpIntID,
+			ProductionRoutingOpIntVersion:  data.ProductionRoutingOpIntVersion,
+			Operation:                      data.Operation,
+			CreationDate:                   data.CreationDate,
+			LastChangeDate:                 data.LastChangeDate,
+			ChangeNumber:                   data.ChangeNumber,
+			ValidityStartDate:              data.ValidityStartDate,
+			ValidityEndDate:                data.ValidityEndDate,
+			OperationText:                  data.OperationText,
+			LongTextLanguageCode:           data.LongTextLanguageCode,
+			Plant:                          data.Plant,
+			OperationControlProfile:        data.OperationControlProfile,
+			OperationStandardTextCode:      data.OperationStandardTextCode,
+			WorkCenterTypeCode:             data.WorkCenterTypeCode,
+			WorkCenterInternalID:           data.WorkCenterInternalID,
+			CapacityCategoryCode:           data.CapacityCategoryCode,
+			OperationCostingRelevancyType:  data.OperationCostingRelevancyType,
+			NumberOfTimeTickets:            data.NumberOfTimeTickets,
+			NumberOfConfirmationSlips:      data.NumberOfConfirmationSlips,
+			OperationSetupType:             data.OperationSetupType,
+			OperationSetupGroupCategory:    data.OperationSetupGroupCategory,
+			OperationSetupGroup:            data.OperationSetupGroup,
+			OperationReferenceQuantity:     data.OperationReferenceQuantity,
+			OperationUnit:                  data.OperationUnit,
+			OpQtyToBaseQtyNmrtr:            data.OpQtyToBaseQtyNmrtr,
+			OpQtyToBaseQtyDnmntr:           data.OpQtyToBaseQtyDnmntr,
+			MaximumWaitDuration:            data.MaximumWaitDuration,
+			MaximumWaitDurationUnit:        data.MaximumWaitDurationUnit,
+			MinimumWaitDuration:            data.MinimumWaitDuration,
+			MinimumWaitDurationUnit:        data.MinimumWaitDurationUnit,
+			StandardQueueDuration:          data.StandardQueueDuration,
+			StandardQueueDurationUnit:      data.StandardQueueDurationUnit,
+			MinimumQueueDuration:           data.MinimumQueueDuration,
+			MinimumQueueDurationUnit:       data.MinimumQueueDurationUnit,
+			StandardMoveDuration:           data.StandardMoveDuration,
+			StandardMoveDurationUnit:       data.StandardMoveDurationUnit,
+			MinimumMoveDuration:            data.MinimumMoveDuration,
+			MinimumMoveDurationUnit:        data.MinimumMoveDurationUnit,
+			OpIsExtlyProcdWithSubcontrg:    data.OpIsExtlyProcdWithSubcontrg,
+			PurchasingInfoRecord:           data.PurchasingInfoRecord,
+			PurchasingOrganization:         data.PurchasingOrganization,
+			PlannedDeliveryDuration:        data.PlannedDeliveryDuration,
+			MaterialGroup:                  data.MaterialGroup,
+			PurchasingGroup:                data.PurchasingGroup,
+			Supplier:                       data.Supplier,
+			NumberOfOperationPriceUnits:    data.NumberOfOperationPriceUnits,
+			CostElement:                    data.CostElement,
+			OpExternalProcessingPrice:      data.OpExternalProcessingPrice,
+			OpExternalProcessingCurrency:   data.OpExternalProcessingCurrency,
+			OperationScrapPercent:          data.OperationScrapPercent,
+			ChangedDateTime:                data.ChangedDateTime,
+			PlainLongText:                  data.PlainLongText,
+		})
+	}
+
+	return operation, nil
+}
+
 func ConvertToToMaterialAssignment(raw []byte, l *logger.Logger) ([]ToMaterialAssignment, error) {
 	pm := &responses.ToMaterialAssignment{}
 
@@ -181,61 +300,61 @@ func ConvertToToOperation(raw []byte, l *logger.Logger) ([]ToOperation, error) {
 	for i := 0; i < 10 && i < len(pm.D.Results); i++ {
 		data := pm.D.Results[i]
 		toOperation = append(toOperation, ToOperation{
-			ProductionRoutingGroup:        data.ProductionRoutingGroup,
-			ProductionRouting:             data.ProductionRouting,
-			ProductionRoutingSequence:     data.ProductionRoutingSequence,
-			ProductionRoutingOpIntID:      data.ProductionRoutingOpIntID,
-			ProductionRoutingOpIntVersion: data.ProductionRoutingOpIntVersion,
-			Operation:                     data.Operation,
-			CreationDate:                  data.CreationDate,
-			LastChangeDate:                data.LastChangeDate,
-			ChangeNumber:                  data.ChangeNumber,
-			ValidityStartDate:             data.ValidityStartDate,
-			ValidityEndDate:               data.ValidityEndDate,
-			OperationText:                 data.OperationText,
-			LongTextLanguageCode:          data.LongTextLanguageCode,
-			Plant:                         data.Plant,
-			OperationControlProfile:       data.OperationControlProfile,
-			OperationStandardTextCode:     data.OperationStandardTextCode,
-			WorkCenterTypeCode:            data.WorkCenterTypeCode,
-			WorkCenterInternalID:          data.WorkCenterInternalID,
-			CapacityCategoryCode:          data.CapacityCategoryCode,
-			OperationCostingRelevancyType: data.OperationCostingRelevancyType,
-			NumberOfTimeTickets:           data.NumberOfTimeTickets,
-			NumberOfConfirmationSlips:     data.NumberOfConfirmationSlips,
-			OperationSetupType:            data.OperationSetupType,
-			OperationSetupGroupCategory:   data.OperationSetupGroupCategory,
-			OperationSetupGroup:           data.OperationSetupGroup,
-			OperationReferenceQuantity:    data.OperationReferenceQuantity,
-			OperationUnit:                 data.OperationUnit,
-			OpQtyToBaseQtyNmrtr:           data.OpQtyToBaseQtyNmrtr,
-			OpQtyToBaseQtyDnmntr:          data.OpQtyToBaseQtyDnmntr,
-			MaximumWaitDuration:           data.MaximumWaitDuration,
-			MaximumWaitDurationUnit:       data.MaximumWaitDurationUnit,
-			MinimumWaitDuration:           data.MinimumWaitDuration,
-			MinimumWaitDurationUnit:       data.MinimumWaitDurationUnit,
-			StandardQueueDuration:         data.StandardQueueDuration,
-			StandardQueueDurationUnit:     data.StandardQueueDurationUnit,
-			MinimumQueueDuration:          data.MinimumQueueDuration,
-			MinimumQueueDurationUnit:      data.MinimumQueueDurationUnit,
-			StandardMoveDuration:          data.StandardMoveDuration,
-			StandardMoveDurationUnit:      data.StandardMoveDurationUnit,
-			MinimumMoveDuration:           data.MinimumMoveDuration,
-			MinimumMoveDurationUnit:       data.MinimumMoveDurationUnit,
-			OpIsExtlyProcdWithSubcontrg:   data.OpIsExtlyProcdWithSubcontrg,
-			PurchasingInfoRecord:          data.PurchasingInfoRecord,
-			PurchasingOrganization:        data.PurchasingOrganization,
-			PlannedDeliveryDuration:       data.PlannedDeliveryDuration,
-			MaterialGroup:                 data.MaterialGroup,
-			PurchasingGroup:               data.PurchasingGroup,
-			Supplier:                      data.Supplier,
-			NumberOfOperationPriceUnits:   data.NumberOfOperationPriceUnits,
-			CostElement:                   data.CostElement,
-			OpExternalProcessingPrice:     data.OpExternalProcessingPrice,
-			OpExternalProcessingCurrency:  data.OpExternalProcessingCurrency,
-			OperationScrapPercent:         data.OperationScrapPercent,
-			ChangedDateTime:               data.ChangedDateTime,
-			PlainLongText:                 data.PlainLongText,
+			ProductionRoutingGroup:         data.ProductionRoutingGroup,
+			ProductionRouting:              data.ProductionRouting,
+			ProductionRoutingSequence:      data.ProductionRoutingSequence,
+			ProductionRoutingOpIntID:       data.ProductionRoutingOpIntID,
+			ProductionRoutingOpIntVersion:  data.ProductionRoutingOpIntVersion,
+			Operation:                      data.Operation,
+			CreationDate:                   data.CreationDate,
+			LastChangeDate:                 data.LastChangeDate,
+			ChangeNumber:                   data.ChangeNumber,
+			ValidityStartDate:              data.ValidityStartDate,
+			ValidityEndDate:                data.ValidityEndDate,
+			OperationText:                  data.OperationText,
+			LongTextLanguageCode:           data.LongTextLanguageCode,
+			Plant:                          data.Plant,
+			OperationControlProfile:        data.OperationControlProfile,
+			OperationStandardTextCode:      data.OperationStandardTextCode,
+			WorkCenterTypeCode:             data.WorkCenterTypeCode,
+			WorkCenterInternalID:           data.WorkCenterInternalID,
+			CapacityCategoryCode:           data.CapacityCategoryCode,
+			OperationCostingRelevancyType:  data.OperationCostingRelevancyType,
+			NumberOfTimeTickets:            data.NumberOfTimeTickets,
+			NumberOfConfirmationSlips:      data.NumberOfConfirmationSlips,
+			OperationSetupType:             data.OperationSetupType,
+			OperationSetupGroupCategory:    data.OperationSetupGroupCategory,
+			OperationSetupGroup:            data.OperationSetupGroup,
+			OperationReferenceQuantity:     data.OperationReferenceQuantity,
+			OperationUnit:                  data.OperationUnit,
+			OpQtyToBaseQtyNmrtr:            data.OpQtyToBaseQtyNmrtr,
+			OpQtyToBaseQtyDnmntr:           data.OpQtyToBaseQtyDnmntr,
+			MaximumWaitDuration:            data.MaximumWaitDuration,
+			MaximumWaitDurationUnit:        data.MaximumWaitDurationUnit,
+			MinimumWaitDuration:            data.MinimumWaitDuration,
+			MinimumWaitDurationUnit:        data.MinimumWaitDurationUnit,
+			StandardQueueDuration:          data.StandardQueueDuration,
+			StandardQueueDurationUnit:      data.StandardQueueDurationUnit,
+			MinimumQueueDuration:           data.MinimumQueueDuration,
+			MinimumQueueDurationUnit:       data.MinimumQueueDurationUnit,
+			StandardMoveDuration:           data.StandardMoveDuration,
+			StandardMoveDurationUnit:       data.StandardMoveDurationUnit,
+			MinimumMoveDuration:            data.MinimumMoveDuration,
+			MinimumMoveDurationUnit:        data.MinimumMoveDurationUnit,
+			OpIsExtlyProcdWithSubcontrg:    data.OpIsExtlyProcdWithSubcontrg,
+			PurchasingInfoRecord:           data.PurchasingInfoRecord,
+			PurchasingOrganization:         data.PurchasingOrganization,
+			PlannedDeliveryDuration:        data.PlannedDeliveryDuration,
+			MaterialGroup:                  data.MaterialGroup,
+			PurchasingGroup:                data.PurchasingGroup,
+			Supplier:                       data.Supplier,
+			NumberOfOperationPriceUnits:    data.NumberOfOperationPriceUnits,
+			CostElement:                    data.CostElement,
+			OpExternalProcessingPrice:      data.OpExternalProcessingPrice,
+			OpExternalProcessingCurrency:   data.OpExternalProcessingCurrency,
+			OperationScrapPercent:          data.OperationScrapPercent,
+			ChangedDateTime:                data.ChangedDateTime,
+			PlainLongText:                  data.PlainLongText,
 		})
 	}
 

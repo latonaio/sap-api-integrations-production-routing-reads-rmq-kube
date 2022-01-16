@@ -75,8 +75,8 @@ sap-api-integrations-production-routing-reads-rmq-kube において、API への
 
 * inoutSDC.ProductionRouting.ProductionRoutingGroup（作業手順グループ）
 * inoutSDC.ProductionRouting.ProductionRouting（作業手順）
-* inoutSDC.ProductionRouting.Product（品目）
 * inoutSDC.ProductionRouting.Plant（プラント）
+* inoutSDC.ProductionRouting.MaterialAssignment.Product（品目）
 * inoutSDC.ProductionRouting.BillOfOperationsDesc（作業手順説明）
 * inoutSDC.ProductionRouting.Sequence.SequenceText（順序テキスト）
 * inoutSDC.ProductionRouting.Sequence.Operation.OperationText（作業テキスト）
@@ -117,7 +117,7 @@ accepter における データ種別 の指定に基づいて SAP_API_Caller �
 caller.go の func() 毎 の 以下の箇所が、指定された API をコールするソースコードです。  
 
 ```
-func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText string, accepter []string) {
+func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, productionRouting, plant, product, billOfOperationsDesc, sequenceText, operationText string, accepter []string) {
 	wg := &sync.WaitGroup{}
 	wg.Add(len(accepter))
 	for _, fn := range accepter {
@@ -129,12 +129,12 @@ func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, product
 			}()
 		case "ProductPlant":
 			func() {
-				c.ProductPlant(product, plant)
+				c.ProductPlant(plant, product)
 				wg.Done()
 			}()
 		case "BillOfOperationsDesc":
 			func() {
-				c.BillOfOperationsDesc(billOfOperationsDesc)
+				c.BillOfOperationsDesc(plant, billOfOperationsDesc)
 				wg.Done()
 			}()
 		case "SequenceText":
@@ -144,7 +144,7 @@ func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, product
 			}()
 		case "OperationText":
 			func() {
-				c.OperationText(operationText)
+				c.OperationText(plant, operationText)
 				wg.Done()
 			}()
 		default:

@@ -9,7 +9,7 @@
 		"ProductionRoutingInternalVers": "",
 		"IsMarkedForDeletion": null,
 		"BillOfOperationsDesc": "ELECTRIC",
-		"Plant": "",
+		"Plant": "1710",
 		"BillOfOperationsUsage": "",
 		"BillOfOperationsStatus": "",
 		"ResponsiblePlannerGroup": "",
@@ -125,6 +125,6 @@
 	"api_schema": "/ProductionRoutingHeader",
 	"accepter": ["BillOfOperationsDesc"],
 	"material_code": "",
-	"plant": "1010",
+	"plant": "1710",
 	"deleted": false
 }

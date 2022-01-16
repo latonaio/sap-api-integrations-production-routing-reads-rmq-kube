@@ -34,7 +34,7 @@ func NewSAPAPICaller(baseUrl string, outputQueueTo []string, outputter RMQOutput
 	}
 }
 
-func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText string, accepter []string) {
+func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, productionRouting, plant, product, billOfOperationsDesc, sequenceText, operationText string, accepter []string) {
 	wg := &sync.WaitGroup{}
 	wg.Add(len(accepter))
 	for _, fn := range accepter {
@@ -46,12 +46,12 @@ func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, product
 			}()
 		case "ProductPlant":
 			func() {
-				c.ProductPlant(product, plant)
+				c.ProductPlant(plant, product)
 				wg.Done()
 			}()
 		case "BillOfOperationsDesc":
 			func() {
-				c.BillOfOperationsDesc(billOfOperationsDesc)
+				c.BillOfOperationsDesc(plant, billOfOperationsDesc)
 				wg.Done()
 			}()
 		case "SequenceText":
@@ -61,7 +61,7 @@ func (c *SAPAPICaller) AsyncGetProductionRouting(productionRoutingGroup, product
 			}()
 		case "OperationText":
 			func() {
-				c.OperationText(operationText)
+				c.OperationText(plant, operationText)
 				wg.Done()
 			}()
 		default:
@@ -227,8 +227,8 @@ func (c *SAPAPICaller) callToComponentAllocation(url string) ([]sap_api_output_f
 	return data, nil
 }
 
-func (c *SAPAPICaller) ProductPlant(product, plant string) {
-	data, err := c.callProductionRoutingSrvAPIRequirementProductPlant("ProductionRoutingMatlAssgmt", product, plant)
+func (c *SAPAPICaller) ProductPlant(plant, product string) {
+	data, err := c.callProductionRoutingSrvAPIRequirementProductPlant("ProductionRoutingMatlAssgmt", plant, product)
 	if err != nil {
 		c.log.Error(err)
 		return
@@ -270,12 +270,12 @@ func (c *SAPAPICaller) ProductPlant(product, plant string) {
 
 }
 
-func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementProductPlant(api, product, plant string) ([]sap_api_output_formatter.MaterialAssignment, error) {
+func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementProductPlant(api, plant, product string) ([]sap_api_output_formatter.MaterialAssignment, error) {
 	url := strings.Join([]string{c.baseURL, "API_PRODUCTION_ROUTING", api}, "/")
 	req, _ := http.NewRequest("GET", url, nil)
 
 	c.setHeaderAPIKeyAccept(req)
-	c.getQueryWithProductPlant(req, product, plant)
+	c.getQueryWithProductPlant(req, plant, product)
 
 	resp, err := new(http.Client).Do(req)
 	if err != nil {
@@ -291,8 +291,8 @@ func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementProductPlant(api, p
 	return data, nil
 }
 
-func (c *SAPAPICaller) BillOfOperationsDesc(billOfOperationsDesc string) {
-	data, err := c.callProductionRoutingSrvAPIRequirementBillOfOperationsDesc("ProductionRoutingHeader", billOfOperationsDesc)
+func (c *SAPAPICaller) BillOfOperationsDesc(plant, billOfOperationsDesc string) {
+	data, err := c.callProductionRoutingSrvAPIRequirementBillOfOperationsDesc("ProductionRoutingHeader", plant, billOfOperationsDesc)
 	if err != nil {
 		c.log.Error(err)
 		return
@@ -306,12 +306,12 @@ func (c *SAPAPICaller) BillOfOperationsDesc(billOfOperationsDesc string) {
 
 }
 
-func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementBillOfOperationsDesc(api, billOfOperationsDesc string) ([]sap_api_output_formatter.Header, error) {
+func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementBillOfOperationsDesc(api, plant, billOfOperationsDesc string) ([]sap_api_output_formatter.Header, error) {
 	url := strings.Join([]string{c.baseURL, "API_PRODUCTION_ROUTING", api}, "/")
 	req, _ := http.NewRequest("GET", url, nil)
 
 	c.setHeaderAPIKeyAccept(req)
-	c.getQueryWithBillOfOperationsDesc(req, billOfOperationsDesc)
+	c.getQueryWithBillOfOperationsDesc(req, plant, billOfOperationsDesc)
 
 	resp, err := new(http.Client).Do(req)
 	if err != nil {
@@ -363,8 +363,8 @@ func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementSequenceText(api, s
 	return data, nil
 }
 
-func (c *SAPAPICaller) OperationText(operationText string) {
-	data, err := c.callProductionRoutingSrvAPIRequirementOperationText("ProductionRoutingOperation", operationText)
+func (c *SAPAPICaller) OperationText(plant, operationText string) {
+	data, err := c.callProductionRoutingSrvAPIRequirementOperationText("ProductionRoutingOperation", plant, operationText)
 	if err != nil {
 		c.log.Error(err)
 		return
@@ -378,12 +378,12 @@ func (c *SAPAPICaller) OperationText(operationText string) {
 
 }
 
-func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementOperationText(api, operationText string) ([]sap_api_output_formatter.Operation, error) {
+func (c *SAPAPICaller) callProductionRoutingSrvAPIRequirementOperationText(api, plant, operationText string) ([]sap_api_output_formatter.Operation, error) {
 	url := strings.Join([]string{c.baseURL, "API_PRODUCTION_ROUTING", api}, "/")
 	req, _ := http.NewRequest("GET", url, nil)
 
 	c.setHeaderAPIKeyAccept(req)
-	c.getQueryWithOperationText(req, operationText)
+	c.getQueryWithOperationText(req, plant, operationText)
 
 	resp, err := new(http.Client).Do(req)
 	if err != nil {
@@ -410,15 +410,15 @@ func (c *SAPAPICaller) getQueryWithHeader(req *http.Request, productionRoutingGr
 	req.URL.RawQuery = params.Encode()
 }
 
-func (c *SAPAPICaller) getQueryWithProductPlant(req *http.Request, product, plant string) {
+func (c *SAPAPICaller) getQueryWithProductPlant(req *http.Request, plant, product string) {
 	params := req.URL.Query()
-	params.Add("$filter", fmt.Sprintf("Product eq '%s' and Plant eq '%s'", product, plant))
+	params.Add("$filter", fmt.Sprintf("Plant eq '%s' and Product eq '%s'", plant, product))
 	req.URL.RawQuery = params.Encode()
 }
 
-func (c *SAPAPICaller) getQueryWithBillOfOperationsDesc(req *http.Request, billOfOperationsDesc string) {
+func (c *SAPAPICaller) getQueryWithBillOfOperationsDesc(req *http.Request, plant, billOfOperationsDesc string) {
 	params := req.URL.Query()
-	params.Add("$filter", fmt.Sprintf("substringof('%s', BillOfOperationsDesc)", billOfOperationsDesc))
+	params.Add("$filter", fmt.Sprintf("Plant eq '%s' and substringof('%s', BillOfOperationsDesc)", plant, billOfOperationsDesc))
 	req.URL.RawQuery = params.Encode()
 }
 
@@ -428,8 +428,8 @@ func (c *SAPAPICaller) getQueryWithSequenceText(req *http.Request, sequenceText 
 	req.URL.RawQuery = params.Encode()
 }
 
-func (c *SAPAPICaller) getQueryWithOperationText(req *http.Request, operationText string) {
+func (c *SAPAPICaller) getQueryWithOperationText(req *http.Request, plant, operationText string) {
 	params := req.URL.Query()
-	params.Add("$filter", fmt.Sprintf("substringof('%s', OperationText)", operationText))
+	params.Add("$filter", fmt.Sprintf("Plant eq '%s' and substringof('%s', OperationText)", plant, operationText))
 	req.URL.RawQuery = params.Encode()
 }

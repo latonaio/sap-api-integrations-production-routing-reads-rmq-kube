@@ -50,18 +50,18 @@ func callProcess(caller *sap_api_caller.SAPAPICaller, msg rabbitmq.RabbitmqMessa
 			return
 		}
 	}()
-	productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText := extractData(msg.Data())
+	productionRoutingGroup, productionRouting, plant, product, billOfOperationsDesc, sequenceText, operationText := extractData(msg.Data())
 	accepter := getAccepter(msg.Data())
-	caller.AsyncGetProductionRouting(productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText, accepter)
+	caller.AsyncGetProductionRouting(productionRoutingGroup, productionRouting, plant, product, billOfOperationsDesc, sequenceText, operationText, accepter)
 	return nil
 }
 
-func extractData(data map[string]interface{}) (productionRoutingGroup, productionRouting, product, plant, billOfOperationsDesc, sequenceText, operationText string) {
+func extractData(data map[string]interface{}) (productionRoutingGroup, productionRouting, plant, product, billOfOperationsDesc, sequenceText, operationText string) {
 	sdc := sap_api_input_reader.ConvertToSDC(data)
 	productionRoutingGroup = sdc.ProductionRouting.ProductionRoutingGroup
 	productionRouting = sdc.ProductionRouting.ProductionRouting
+	plant = sdc.ProductionRouting.Plant
 	product = sdc.ProductionRouting.MaterialAssignment.Product
-	plant = sdc.ProductionRouting.MaterialAssignment.Plant
 	billOfOperationsDesc = sdc.ProductionRouting.BillOfOperationsDesc
 	sequenceText = sdc.ProductionRouting.Sequence.SequenceText
 	operationText = sdc.ProductionRouting.Sequence.Operation.OperationText

@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L163",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L203",
 	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).ProductPlant",
 	"level": "INFO",
 	"message": [
@@ -10,12 +10,12 @@
 			"ProductionRouting": "1",
 			"ProductionRoutingMatlAssgmt": "1",
 			"ProductionRtgMatlAssgmtIntVers": "1",
-			"CreationDate": "/Date(1603756800000)/",
+			"CreationDate": "2020-10-27T09:00:00+09:00",
 			"LastChangeDate": "",
-			"ValidityStartDate": "/Date(1603756800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2020-10-27T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"ChangeNumber": ""
 		}
 	],
-	"time": "2022-01-02T14:48:50.468756+09:00"
+	"time": "2022-01-28T14:12:26+09:00"
 }

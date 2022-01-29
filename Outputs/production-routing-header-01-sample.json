@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L58",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L73",
 	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).Header",
 	"level": "INFO",
 	"message": [
@@ -16,16 +16,16 @@
 			"MinimumLotSizeQuantity": "1",
 			"MaximumLotSizeQuantity": "99999999",
 			"BillOfOperationsUnit": "PC",
-			"CreationDate": "/Date(1612137600000)/",
+			"CreationDate": "2021-02-01T09:00:00+09:00",
 			"CreatedByUser": "SAP_SYSTEM",
 			"LastChangeDate": "",
-			"ValidityStartDate": "/Date(1612137600000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-02-01T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"ChangeNumber": "",
 			"PlainLongText": "",
 			"to_MatlAssgmt": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingHeader(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingInternalVers='1')/to_MatlAssgmt",
 			"to_Sequence": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingHeader(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingInternalVers='1')/to_Sequence"
 		}
 	],
-	"time": "2022-01-02T14:47:00.25546+09:00"
+	"time": "2022-01-28T14:08:56+09:00"
 }

@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L289",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L314",
 	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).OperationText",
 	"level": "INFO",
 	"message": [
@@ -10,11 +10,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1612137600000)/",
+			"CreationDate": "2021-02-01T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1612137600000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-02-01T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -57,8 +57,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1612150635000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "40000070",
@@ -67,11 +68,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1620172800000)/",
+			"CreationDate": "2021-05-05T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1620172800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-05-05T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -114,8 +115,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1620206612000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='40000070',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000501",
@@ -124,11 +126,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging 1kg Bags",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -171,8 +173,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000501',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000501",
@@ -181,11 +184,11 @@
 			"ProductionRoutingOpIntID": "6",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging 1kg Bags",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -228,8 +231,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000501',ProductionRouting='2',ProductionRoutingSequence='0',ProductionRoutingOpIntID='6',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000502",
@@ -238,11 +242,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging 1kg Bags",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -285,8 +289,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000502',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000502",
@@ -295,11 +300,11 @@
 			"ProductionRoutingOpIntID": "6",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging 1kg Bags",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -342,8 +347,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000502',ProductionRouting='2',ProductionRoutingSequence='0',ProductionRoutingOpIntID='6',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000503",
@@ -352,11 +358,11 @@
 			"ProductionRoutingOpIntID": "2",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "20",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Display Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -399,8 +405,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000503',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='2',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41000503",
@@ -409,11 +416,11 @@
 			"ProductionRoutingOpIntID": "4",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "20",
-			"CreationDate": "/Date(1627948800000)/",
+			"CreationDate": "2021-08-03T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1627948800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-08-03T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Display Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -456,8 +463,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1628006511000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41000503',ProductionRouting='2',ProductionRoutingSequence='0',ProductionRoutingOpIntID='4',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41010000",
@@ -466,11 +474,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "3",
 			"Operation": "30",
-			"CreationDate": "/Date(1466726400000)/",
-			"LastChangeDate": "/Date(1466726400000)/",
+			"CreationDate": "2016-06-24T09:00:00+09:00",
+			"LastChangeDate": "2016-06-24T09:00:00+09:00",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1466726400000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2016-06-24T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -513,8 +521,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1466773729000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41010000',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='3')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "41010000",
@@ -523,11 +532,11 @@
 			"ProductionRoutingOpIntID": "7",
 			"ProductionRoutingOpIntVersion": "7",
 			"Operation": "30",
-			"CreationDate": "/Date(1466726400000)/",
-			"LastChangeDate": "/Date(1466726400000)/",
+			"CreationDate": "2016-06-24T09:00:00+09:00",
+			"LastChangeDate": "2016-06-24T09:00:00+09:00",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1466726400000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2016-06-24T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Manual Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -570,9 +579,10 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1466773743000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41010000',ProductionRouting='2',ProductionRoutingSequence='0',ProductionRoutingOpIntID='7',ProductionRoutingOpIntVersion='7')/to_OpCompAlloc"
 		}
 	],
-	"time": "2022-01-02T16:27:20.036486+09:00"
+	"time": "2022-01-28T14:11:45+09:00"
 }

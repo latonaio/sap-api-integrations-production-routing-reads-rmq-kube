@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L79",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L94",
 	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).Header",
 	"level": "INFO",
 	"message": [
@@ -10,11 +10,11 @@
 			"ProductionRoutingOpIntID": "1",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "10",
-			"CreationDate": "/Date(1612137600000)/",
+			"CreationDate": "2021-02-01T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1612137600000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-02-01T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Assembly",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -57,8 +57,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1612150635000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='1',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "40000060",
@@ -67,11 +68,11 @@
 			"ProductionRoutingOpIntID": "2",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "20",
-			"CreationDate": "/Date(1612137600000)/",
+			"CreationDate": "2021-02-01T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1612137600000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-02-01T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Final Acceptance",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -114,8 +115,9 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1612150635000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='2',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		},
 		{
 			"ProductionRoutingGroup": "40000060",
@@ -124,11 +126,11 @@
 			"ProductionRoutingOpIntID": "3",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "30",
-			"CreationDate": "/Date(1612137600000)/",
+			"CreationDate": "2021-02-01T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1612137600000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2021-02-01T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Packaging",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -171,9 +173,10 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1612150635000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='40000060',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='3',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		}
 	],
-	"time": "2022-01-02T14:47:01.485056+09:00"
+	"time": "2022-01-28T14:08:58+09:00"
 }

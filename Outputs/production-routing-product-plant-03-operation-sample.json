@@ -1,5 +1,5 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L181",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-production-routing-reads/SAP_API_Caller/caller.go#L221",
 	"function": "sap-api-integrations-production-routing-reads/SAP_API_Caller.(*SAPAPICaller).ProductPlant",
 	"level": "INFO",
 	"message": [
@@ -10,11 +10,11 @@
 			"ProductionRoutingOpIntID": "1",
 			"ProductionRoutingOpIntVersion": "1",
 			"Operation": "10",
-			"CreationDate": "/Date(1603756800000)/",
+			"CreationDate": "2020-10-27T09:00:00+09:00",
 			"LastChangeDate": "",
 			"ChangeNumber": "",
-			"ValidityStartDate": "/Date(1603756800000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2020-10-27T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"OperationText": "Final Robot Assembly",
 			"LongTextLanguageCode": "",
 			"Plant": "1010",
@@ -57,9 +57,10 @@
 			"OpExternalProcessingPrice": "0.00",
 			"OpExternalProcessingCurrency": "",
 			"OperationScrapPercent": "0.000",
-			"ChangedDateTime": "/Date(1603820084000+0000)/",
-			"PlainLongText": ""
+			"ChangedDateTime": "",
+			"PlainLongText": "",
+			"to_OpCompAlloc": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ROUTING/ProductionRoutingOperation(ProductionRoutingGroup='41010088',ProductionRouting='1',ProductionRoutingSequence='0',ProductionRoutingOpIntID='1',ProductionRoutingOpIntVersion='1')/to_OpCompAlloc"
 		}
 	],
-	"time": "2022-01-02T14:48:51.249449+09:00"
+	"time": "2022-01-28T14:12:26+09:00"
 }
